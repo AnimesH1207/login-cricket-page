@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome | Register & Login</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    
+    <div id="signup-form" style="display: none;">
+      <h1 style="text-align: center; padding: 10px;">Sign Up</h1>
+      <div id="signUpMessage" class="messageDiv" style="display:none;"></div>
+
+      <input class="input-field" id="fName"      type="text"     placeholder="First Name" required />
+      <input class="input-field" id="lName"      type="text"     placeholder="Last Name"  required />
+      <input class="input-field" id="rEmail"     type="email"    placeholder="Email"      required />
+      <input class="input-field" id="rPassword"  type="password" placeholder="Password"   required />
+
+      <div class="checkbox">
+        <input type="checkbox" id="terms" required>
+        <label for="terms">
+          I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.
+        </label>
+      </div>
+
+      <button class="button" id="submitSignUp">Sign Up</button>
+
+      <div class="divider"><span>or</span></div>
+
+      <button class="google-button">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+          alt="Google"
+          class="google-icon"
+        />
+        Continue with Google
+      </button>
+
+      <div class="footer" style="padding: 10px;">
+        Already have an account? <a href="#" id="show-login">Log in</a>
+      </div>
+    </div>
+
+  
+    <div id="login-form">
+      <h1 style="text-align: center; padding: 10px;">Login</h1>
+      <div id="signInMessage" class="messageDiv" style="display:none;"></div>
+      <input class="input-field" id="email"    type="email"    placeholder="Email"    required />
+      <input class="input-field" id="password" type="password" placeholder="Password" required />
+
+      <div class="options-row">
+        <div class="remember-me">
+          <input type="checkbox" id="rememberMe">
+          <label for="rememberMe">Remember me</label>
+        </div>
+        <a href="#" id="forgot-password">Forgot password?</a>
+      </div>
+
+      <button class="button" id="submitSignIn">Log In</button>
+
+      <div class="divider"><span>or</span></div>
+
+      <button class="google-button">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg"
+          alt="Google"
+          class="google-icon"
+        />
+        Continue with Google
+      </button>
+
+      <div class="footer" style="padding: 10px;">
+        Don't have an account? <a href="#" id="show-signup">Sign up</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    
+    document.getElementById('show-signup').addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('login-form').style.display  = 'none';
+      document.getElementById('signup-form').style.display = 'block';
+    });
+    
+    document.getElementById('show-login').addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('signup-form').style.display = 'none';
+      document.getElementById('login-form').style.display  = 'block';
+    });
+
+    
+    document.getElementById('forgot-password').addEventListener('click', e => {
+      e.preventDefault();
+      const email = prompt("Please enter your email to reset your password:");
+      if (email) {
+        alert("Password reset link has been sent to " + email);
+      }
+    });
+  </script>
+
+ 
+  <script type="module" src="script.js"></script>
+</body>
+</html>
